@@ -1,5 +1,7 @@
-# SMA-Emociones
-Sistema Multiagente de detección de emociones
+# Sistema Multiagente de detección de emociones
+Colaboradores:
+  * Luis Daniel Erazo (https://github.com/lderazo1)
+  * Ximena Puchaicela (https://github.com/Ximena1998)
 
 ---------------------------------
 
