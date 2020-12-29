@@ -11,3 +11,10 @@
 
   ```Nota: Puede instalar el kit completo en el siguiente enlace:``` https://www.oracle.com/technetwork/es/java/javase/downloads/jdk-netbeans-jsp-3413139-esa.html
 * Jade: https://jade.tilab.com/dl.php?file=JADE-bin-4.5.0.zip
+
+---------------------------------
+
+### Agentes
+* Opdage (Agente detector)
+* Raadso (Agente buscador)
+* Avalie (Agente evaluador)
