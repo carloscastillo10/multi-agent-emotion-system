@@ -1,5 +1,5 @@
 # Sistema Multiagente de Detección de Emociones
-### Colaboradores:
+### Colaboradores
   * Luis Daniel Erazo (https://github.com/lderazo1)
   * Ximena Puchaicela (https://github.com/Ximena1998)
 
