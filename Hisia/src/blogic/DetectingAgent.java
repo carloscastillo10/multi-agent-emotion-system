@@ -10,12 +10,12 @@ import jade.lang.acl.ACLMessage;
  * @member Carlos Castillo
  * @member Luis Daniel Erazo
  * @member Ximena Puchaicela
- */
+*/
 public class DetectingAgent extends Agent{
     /**
      * Detectar rostro desde la webcam del computador
      * Emitir keypoints hacia el agente buscador
-     */
+    */
     
     class DetectingAgentBehaviour extends Behaviour{
         
@@ -37,13 +37,13 @@ public class DetectingAgent extends Agent{
             message.setContent("Aqui enviar keyPoints detectados");
             
             send(message); // Enviar mensaje al agente 'Buscador' (SearchAgente)'
-            block(10000);
+            block();
         }
-
+        
         @Override
         public boolean done(){
             return false;
-        }
+        }    
     }
     
     @Override

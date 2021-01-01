@@ -10,12 +10,12 @@ import jade.lang.acl.ACLMessage;
  * @member Carlos Castillo
  * @member Luis Daniel Erazo
  * @member Ximena Puchaicela
- */
+*/
 public class SearchAgent extends Agent{
-  /**
-   * Buscar y asociar los datos receptados por el agente detector (DetectingAgent)
-   * Enviar resultador al agente evaluador (EvaluatingAgent)
-   */
+    /**
+     * Buscar y asociar los datos receptados por el agente detector (DetectingAgent)
+     * Enviar resultador al agente evaluador (EvaluatingAgent)
+    */
     
     class SearchAgentBehaivour extends CyclicBehaviour{
         
@@ -42,8 +42,7 @@ public class SearchAgent extends Agent{
                 
                 send(search_message); // Enviar mensaje al agente 'Buscador' (EvaluatingAgent)'
             }
-            block();
-            
+            block();       
         }
     }
     
@@ -53,6 +52,4 @@ public class SearchAgent extends Agent{
        System.out.println("Agente " + getLocalName());
        addBehaviour(new SearchAgentBehaivour()); // Agregar comportamiento
     }
-    
-   
 }

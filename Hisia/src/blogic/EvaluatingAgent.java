@@ -9,12 +9,12 @@ import jade.lang.acl.ACLMessage;
  * @member Carlos Castillo
  * @member Luis Daniel Erazo
  * @member Ximena Puchaicela
- */
+*/
 public class EvaluatingAgent extends Agent{
     /**
      * Presentar resultados de evaluación
      * Emitir criterio u sugerencia
-     */
+    */
     
     class EvaluatingAgentBehaivour extends CyclicBehaviour{
         
