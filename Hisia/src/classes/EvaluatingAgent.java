@@ -1,5 +1,6 @@
-package blogic;
+package classes;
 
+import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -26,8 +27,8 @@ public class EvaluatingAgent extends Agent{
             if (search_message != null){
                 System.out.println(String.format("Mensaje receptado desde "
                         + "agente buscador: %s\n", search_message.getContent()));
+                data.FaceImage.pathName = " ";
             }
-            block();
         }
     }
     @Override
