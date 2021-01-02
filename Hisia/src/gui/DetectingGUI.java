@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
 
 import blogic.LoadImage;
-import classes.DetectingAgent;
-import jade.core.AID;
-import jade.lang.acl.ACLMessage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +17,7 @@ public class DetectingGUI extends javax.swing.JFrame {
      */
     public DetectingGUI() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -53,12 +46,12 @@ public class DetectingGUI extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 49));
-        jPanel1.add(lblViewImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 490, 390));
+        jPanel1.add(lblViewImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 870, 620));
 
         lblAnalyzing.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(lblAnalyzing, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 320, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 510));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

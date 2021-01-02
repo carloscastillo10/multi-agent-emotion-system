@@ -6,13 +6,11 @@ import jade.core.Agent;
 import jade.core.behaviours.*;
 import jade.lang.acl.ACLMessage;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
@@ -73,38 +71,59 @@ public class DetectingAgent extends Agent {
             }
         }
         
+        // Comprueba si el comportamiento se ha cumplido
         @Override
         public boolean done() {
             return false;
         }
-       
-        protected Image detectFace(String path) throws IOException {
-            
+        
+       /**
+        * Detectar rostros a partir de una imágen seleccionada.
+        * @param pathImage[String]: Ruta de la imágen seleccionada
+        * @return byte[]
+        * @throws IOException 
+        */
+        protected byte[] detectFace(String pathImage) throws IOException {
+                       
+            // Cargar la libería nativa de OpenCv
             System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-            CascadeClassifier faceDetector = new CascadeClassifier(System.getProperty("user.dir") + "\\resources\\faceDetection\\"
+            
+            // Instancia de la clase CascadeClassifier
+            CascadeClassifier faceDetector = new CascadeClassifier(
+                    System.getProperty("user.dir") + "\\resources\\faceDetection\\"
                     + "haarcascade_frontalface_alt.xml");
-            Mat image = Imgcodecs.imread(path);
+            
+            Mat image = Imgcodecs.imread(pathImage); // Obtener la imágen seleccionada
             MatOfRect detectedFaces = new MatOfRect();
             MatOfByte matOfByte = new MatOfByte();
-
+            
+            /**
+             Detectar los rostros a través del método 'detectMultiScale' que,
+             recibe la imágen y un objeto de la clase 'MatOfRect' para almacenar
+             los rostros detectados.
+            */
             faceDetector.detectMultiScale(image, detectedFaces);
-            System.out.println(String.format("Rostros detectados: %s", detectedFaces.toArray().length));
-
+                        
+            // Dibujar un ractángulo al rededor del rostro detectado.
             for (Rect rect : detectedFaces.toArray()) {
-                Imgproc.rectangle(image, rect.tl(), rect.br(), new Scalar(0, 255, 0), 2);
+                Imgproc.rectangle(image, rect.tl(), rect.br(), 
+                        new Scalar(0, 255, 0), 2);
             }
-
+            
+            // Convertir a bytes la imagen
             Imgcodecs.imencode(".jpg", image, matOfByte);
             byte[] byteArray = matOfByte.toArray();
-            try {
-                InputStream input = new ByteArrayInputStream(byteArray);
-                BufferedImage bufImage = ImageIO.read(input);
-                Image outputImage = (Image) bufImage;
-                Imgcodecs.imwrite("deteccion.png", image);
-                return outputImage;
-            } catch (IOException e) {
-            }
-            return null;
+            
+            // Cargar la imagen en el label de la interfaz.
+            ImageIcon imageIcon = new ImageIcon(byteArray);
+            Icon icon = new ImageIcon(imageIcon.getImage().getScaledInstance(
+                    this.objDetectingGUI.lblViewImage.getWidth(),
+                    this.objDetectingGUI.lblViewImage.getHeight(),
+                    Image.SCALE_DEFAULT));
+            this.objDetectingGUI.lblViewImage.setIcon(icon);
+            this.objDetectingGUI.lblViewImage.repaint();
+            
+            return byteArray;
         }
     }
 
@@ -114,5 +133,5 @@ public class DetectingAgent extends Agent {
         System.out.println("Agente" + getLocalName());
         DetectingAgentBehaviour detectingBehaviour = new DetectingAgentBehaviour();
         addBehaviour(detectingBehaviour); // Agregar comportamiento
-    }
+    }   
 }
