@@ -42,3 +42,9 @@ ENGINE = InnoDB;
 ALTER TABLE emotionsdb.Recommendation
 	ADD CONSTRAINT fk_Recommendation_Emotion
     FOREIGN KEY (idEmotion) REFERENCES Emotion(idEmotion);
+    
+INSERT INTO emotionsdb.Emotion(nameEmotion) VALUES ('Alegría');
+INSERT INTO emotionsdb.Emotion(nameEmotion) VALUES ('Tristeza');
+INSERT INTO emotionsdb.Emotion(nameEmotion) VALUES ('Ira');
+INSERT INTO emotionsdb.Emotion(nameEmotion) VALUES ('Aburrimiento');
+INSERT INTO emotionsdb.Emotion(nameEmotion) VALUES ('Miedo');
