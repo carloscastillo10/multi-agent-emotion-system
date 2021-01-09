@@ -1,9 +1,5 @@
 package gui;
 
-import blogic.LoadImage;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @team HISIA
@@ -30,48 +26,19 @@ public class DetectingGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnLoad = new javax.swing.JButton();
-        lblViewImage = new javax.swing.JLabel();
-        lblAnalyzing = new javax.swing.JLabel();
+        lblDetecting = new javax.swing.JLabel();
+        lblSearching = new javax.swing.JLabel();
+        lblEvaluating = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnLoad.setText("Cargar imagen");
-        btnLoad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoadActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 49));
-        jPanel1.add(lblViewImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 870, 620));
-
-        lblAnalyzing.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(lblAnalyzing, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 320, 70));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 720));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(lblDetecting, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 40));
+        getContentPane().add(lblSearching, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 180, 40));
+        getContentPane().add(lblEvaluating, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 160, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed
-        // TODO add your handling code here:
-        
-        LoadImage objLoadImage = new LoadImage();
-        try {
-            String pathImage = objLoadImage.uploadImage();
-            if (!pathImage.equals(" ")){
-                data.FaceImage.pathName = pathImage;   
-                this.lblAnalyzing.setText("DETECTANDO EMOCIONES......");
-                // this.lblViewImage.setIcon(new ImageIcon(objLoadImage.uploadImage()));
-                // this.lblViewImage.repaint();
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(DetectingGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }    
-    }//GEN-LAST:event_btnLoadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,9 +83,9 @@ public class DetectingGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLoad;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JLabel lblAnalyzing;
-    public javax.swing.JLabel lblViewImage;
+    public javax.swing.JLabel lblDetecting;
+    public javax.swing.JLabel lblEvaluating;
+    public javax.swing.JLabel lblSearching;
     // End of variables declaration//GEN-END:variables
 }
