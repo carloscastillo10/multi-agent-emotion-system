@@ -10,7 +10,6 @@
 * [Netbeans 8.2](https://netbeans.org/downloads/old/8.2/) (Escoger según su sistema operativo)
 
   ```Nota: Puede instalar el kit completo en el siguiente enlace:```[Descargar kit jdk-netbeans](https://www.oracle.com/technetwork/es/java/javase/downloads/jdk-netbeans-jsp-3413139-esa.html)
-* [Jade](https://jade.tilab.com/dl.php?file=JADE-bin-4.5.0.zip)
 
 ---------------------------------
 
