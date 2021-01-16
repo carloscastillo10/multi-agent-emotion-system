@@ -30,7 +30,7 @@ public class ConnectionDB {
         String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/emotionsdb";
         Class.forName(driver);
-        conecction = DriverManager.getConnection(url,"admin","admin");
+        conecction = DriverManager.getConnection(url,"teacher","teacher");
         
         return conecction;
     }

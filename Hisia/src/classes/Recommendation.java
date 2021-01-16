@@ -8,37 +8,27 @@ package classes;
 */
 public class Recommendation {
     
-    private int idRecommendation;
-    private String nameRecommendation;
+    private String idRecommendation;
     private String descriptionRecommendation;
     private Emotion emotion;
 
     public Recommendation() {
     }
 
-    public Recommendation(int idRecommendation, String nameRecommendation, 
-            String descriptionRecommendation, Emotion emotion) {
+    public Recommendation(String idRecommendation, String descriptionRecommendation, 
+            Emotion emotion) {
         
         this.idRecommendation = idRecommendation;
-        this.nameRecommendation = nameRecommendation;
         this.descriptionRecommendation = descriptionRecommendation;
         this.emotion = emotion;
     }
 
-    public int getIdRecommendation() {
+    public String getIdRecommendation() {
         return idRecommendation;
     }
 
-    public void setIdRecommendation(int idRecommendation) {
+    public void setIdRecommendation(String idRecommendation) {
         this.idRecommendation = idRecommendation;
-    }
-
-    public String getNameRecommendation() {
-        return nameRecommendation;
-    }
-
-    public void setNameRecommendation(String nameRecommendation) {
-        this.nameRecommendation = nameRecommendation;
     }
 
     public String getDescriptionRecommendation() {
@@ -57,4 +47,9 @@ public class Recommendation {
         this.emotion = emotion;
     }
     
+    @Override
+    public String toString(){
+        return String.format("idCause: %s, descriptionCause: %s", 
+                getIdRecommendation(),getDescriptionRecommendation());
+    }
 }

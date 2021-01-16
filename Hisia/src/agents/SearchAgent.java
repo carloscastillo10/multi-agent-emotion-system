@@ -66,7 +66,7 @@ public class SearchAgent extends Agent {
             ResultSet resultset = emotionDB.getEmotions();
 
             while (resultset.next()) {
-                int idEmotion = resultset.getInt(1);
+                String idEmotion = resultset.getString(1);
                 String nameEmotion = resultset.getString(2);
                 Emotion emotion = new Emotion(idEmotion, nameEmotion);
                 emotions.add(emotion);

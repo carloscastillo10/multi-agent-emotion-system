@@ -8,23 +8,23 @@ package classes;
 */
 public class Emotion {
     
-    private int idEmotion;
+    private String idEmotion;
     private String nameEmotion;
 
     public Emotion() {
     }
 
-    public Emotion(int idEmotion, String nameEmotion) {
+    public Emotion(String idEmotion, String nameEmotion) {
         this.idEmotion = idEmotion;
         this.nameEmotion = nameEmotion;
     }
 
 
-    public int getIdEmotion() {
+    public String getIdEmotion() {
         return idEmotion;
     }
 
-    public void setIdEmotion(int idEmotion) {
+    public void setIdEmotion(String idEmotion) {
         this.idEmotion = idEmotion;
     }
 
@@ -38,7 +38,7 @@ public class Emotion {
     
     @Override
     public String toString(){
-        return String.format("idEmotion: %d, emotion: %s", getIdEmotion(),
+        return String.format("idEmotion: %s, emotionName: %s", getIdEmotion(),
                 getNameEmotion());
     }
         

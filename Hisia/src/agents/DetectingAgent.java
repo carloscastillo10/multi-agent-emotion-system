@@ -5,8 +5,13 @@ import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.*;
 import jade.lang.acl.ACLMessage;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * @team HISIA
@@ -54,13 +59,37 @@ public class DetectingAgent extends Agent {
             return false;
         }
 
-        
         protected String detectingEmotion() {
-            String[] emotions = {"Feliz", "Triste", "Aburrido", "Enojado"};
+            ArrayList<String> emotions = new ArrayList<>();
+            File f = new File("resources/emotions_file.csv");
             Random random = new Random();
-            String emotion = emotions[random.nextInt(emotions.length)];
             
-            return emotion;
+            // StringTokenizer st;
+            Scanner input = null;
+            String emotion;
+            try {
+                input = new Scanner(f);
+                while (input.hasNext()) {
+                    emotion = input.nextLine();
+                    emotions.add(emotion);
+                    // st = new StringTokenizer(emotion, ",");
+//                    while (st.hasMoreTokens()) {
+//                        Socio objTmpSocio = new Socio(st.nextToken(), st.nextToken(), st.nextToken());
+//                        ArraySocios.add(objTmpSocio);
+//                    }
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                input.close();
+            }
+            
+            //String[] emotions = {"Feliz", "Triste", "Aburrido", "Enojado"};
+            System.out.println(emotions);
+            String emotionDectected = emotions.get(random.nextInt(emotions.size()));
+            // String emotion = emotions[random.nextInt(emotions.length)];
+
+            return emotionDectected;
         }
 
     }
