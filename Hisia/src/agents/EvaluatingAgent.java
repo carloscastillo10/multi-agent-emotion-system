@@ -4,6 +4,10 @@ import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 import gui.DetectingGUI;
+import jade.lang.acl.UnreadableException;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @team HISIA
@@ -24,9 +28,14 @@ public class EvaluatingAgent extends Agent{
             
             // Recibir el mensaje del agente buscador (DetectingAgent)
             ACLMessage search_message = blockingReceive();
+            //String message = new String(Base64.decodeBase64(search_message.get.getBytes()));
             if (search_message != null){
-                System.out.println(String.format("Mensaje receptado desde "
-                        + "agente buscador: %s\n", search_message.getContent()));
+                try {
+                    System.out.println(String.format("Mensaje receptado desde "
+                            + "agente buscador: %s\n", search_message.getContentObject()));
+                } catch (UnreadableException ex) {
+                    Logger.getLogger(EvaluatingAgent.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }

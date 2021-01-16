@@ -13,11 +13,13 @@ import java.sql.Statement;
 public class EmotionDB {
     
     ConnectionDB conecction = new ConnectionDB();
-    
-    public ResultSet getEmotions() throws ClassNotFoundException, SQLException{
+     
+    public ResultSet getEmotion(String emotion) throws ClassNotFoundException, SQLException{
         
         Statement statement = conecction.openConnection().createStatement();
-        String query = "SELECT * FROM Emotion";
+        String query = String.format("SELECT * FROM Emotion "
+                + "WHERE nameEmotion = '%s'", emotion);
+ 
         return statement.executeQuery(query);
     }
 }

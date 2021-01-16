@@ -11,12 +11,8 @@ USE emotionsdb;
 DROP USER IF EXISTS 'teacher'@'localhost';
 CREATE USER 'teacher'@'localhost' IDENTIFIED BY 'teacher';
 
-GRANT CREATE ON emotionsdb.* TO 'teacher'@'localhost';
-GRANT DROP ON emotionsdb.* TO 'teacher'@'localhost';
-GRANT DELETE ON emotionsdb.* TO 'teacher'@'localhost';
-GRANT INSERT ON emotionsdb.* TO 'teacher'@'localhost';
 GRANT SELECT ON emotionsdb.* TO 'teacher'@'localhost';
-GRANT UPDATE ON emotionsdb.* TO 'teacher'@'localhost';
+
 FLUSH PRIVILEGES;
 
 -- -----------------------------------------------------

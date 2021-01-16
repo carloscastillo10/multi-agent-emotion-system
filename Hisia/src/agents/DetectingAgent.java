@@ -1,17 +1,14 @@
 package agents;
 
-import gui.DetectingGUI;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.*;
 import jade.lang.acl.ACLMessage;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 /**
  * @team HISIA
@@ -29,9 +26,9 @@ public class DetectingAgent extends Agent {
 
         @Override
         public void action() {
-            String emotion = detectingEmotion();
-            if (!emotion.isEmpty()) {
-                System.out.println("Emocion: " + emotion);
+            String emotionDetected = detectingEmotion();
+            if (!emotionDetected.isEmpty()) {
+      
                 // Identificador del agente con el que se va a comunicar (SearchAgent)
                 AID search_agent_id = new AID();
 
@@ -44,7 +41,7 @@ public class DetectingAgent extends Agent {
                 message.addReceiver(search_agent_id); // Agregar receptor (SearchAgent)
 
                 // Contenido del mensaje
-                message.setContent("Aqui enviar keyPoints detectados");
+                message.setContent(emotionDetected);
 
                 send(message); // Enviar mensaje al agente 'Buscador' (SearchAgente)'
             }
@@ -58,40 +55,6 @@ public class DetectingAgent extends Agent {
         public boolean done() {
             return false;
         }
-
-        protected String detectingEmotion() {
-            ArrayList<String> emotions = new ArrayList<>();
-            File f = new File("resources/emotions_file.csv");
-            Random random = new Random();
-            
-            // StringTokenizer st;
-            Scanner input = null;
-            String emotion;
-            try {
-                input = new Scanner(f);
-                while (input.hasNext()) {
-                    emotion = input.nextLine();
-                    emotions.add(emotion);
-                    // st = new StringTokenizer(emotion, ",");
-//                    while (st.hasMoreTokens()) {
-//                        Socio objTmpSocio = new Socio(st.nextToken(), st.nextToken(), st.nextToken());
-//                        ArraySocios.add(objTmpSocio);
-//                    }
-                }
-            } catch (FileNotFoundException e) {
-                System.out.println(e.getMessage());
-            } finally {
-                input.close();
-            }
-            
-            //String[] emotions = {"Feliz", "Triste", "Aburrido", "Enojado"};
-            System.out.println(emotions);
-            String emotionDectected = emotions.get(random.nextInt(emotions.size()));
-            // String emotion = emotions[random.nextInt(emotions.length)];
-
-            return emotionDectected;
-        }
-
     }
 
     @Override
@@ -101,4 +64,29 @@ public class DetectingAgent extends Agent {
         DetectingAgentBehaviour detectingBehaviour = new DetectingAgentBehaviour();
         addBehaviour(detectingBehaviour); // Agregar comportamiento
     }
+    
+    protected String detectingEmotion() {
+            ArrayList<String> emotions = new ArrayList<>();
+            File file = new File("resources/emotions_file.csv");
+            Random random = new Random();
+            
+            Scanner input = null;
+            String emotion;
+            
+            try {
+                input = new Scanner(file);
+                while (input.hasNext()) {
+                    emotion = input.nextLine();
+                    emotions.add(emotion);
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                input.close();
+            }
+            
+            String emotionDectected = emotions.get(random.nextInt(emotions.size()));
+
+            return emotionDectected;
+        }
 }

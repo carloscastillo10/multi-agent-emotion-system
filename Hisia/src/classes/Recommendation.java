@@ -6,21 +6,18 @@ package classes;
  * @member Luis Daniel Erazo
  * @member Ximena Puchaicela
 */
-public class Recommendation {
+public class Recommendation implements java.io.Serializable{
     
     private String idRecommendation;
     private String descriptionRecommendation;
-    private Emotion emotion;
 
     public Recommendation() {
     }
 
-    public Recommendation(String idRecommendation, String descriptionRecommendation, 
-            Emotion emotion) {
+    public Recommendation(String idRecommendation, String descriptionRecommendation) {
         
         this.idRecommendation = idRecommendation;
         this.descriptionRecommendation = descriptionRecommendation;
-        this.emotion = emotion;
     }
 
     public String getIdRecommendation() {
@@ -39,17 +36,9 @@ public class Recommendation {
         this.descriptionRecommendation = descriptionRecommendation;
     }
 
-    public Emotion getEmotion() {
-        return emotion;
-    }
-
-    public void setEmotion(Emotion emotion) {
-        this.emotion = emotion;
-    }
-    
     @Override
     public String toString(){
-        return String.format("idCause: %s, descriptionCause: %s", 
-                getIdRecommendation(),getDescriptionRecommendation());
+        return String.format("idRecommendation: %s, descriptionRecommendation: %s", 
+                idRecommendation, descriptionRecommendation);
     }
 }

@@ -4,22 +4,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 /**
  * @team HISIA
  * @member Carlos Castillo
  * @member Luis Daniel Erazo
  * @member Ximena Puchaicela
 */
-public class RecommendationDB {
-   
+public class CauseDB {
+    
     ConnectionDB conecction = new ConnectionDB();
     
-    public ResultSet getRecommendations(String idEmotion) throws ClassNotFoundException, SQLException{
+    public ResultSet getCauses(String idEmotion) throws ClassNotFoundException, SQLException{
         
         Statement statement = conecction.openConnection().createStatement();
-        String query = String.format("SELECT idRecommendation, descriptionRecommendation FROM "
-                + "Recommendation WHERE idEmotion = '%s'", idEmotion);
+        String query = String.format("SELECT idCause, descriptionCause FROM Cause \n" +
+                "WHERE idEmotion = '%s'", idEmotion);
         
         return statement.executeQuery(query);
     }
