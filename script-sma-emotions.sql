@@ -84,7 +84,7 @@ INSERT INTO emotionsdb.Recommendation(idRecommendation, descriptionRecommendatio
 -- -----------------------------------------------------
 -- insert causes of 'Enojo' emotion
 -- -----------------------------------------------------    
-INSERT INTO emotionsdb.Cause(idCause, descriptionCause, idEmotion) VALUES ('ca-007','Ambigua, confusa y desorganizada.', 'em-003');
+INSERT INTO emotionsdb.Cause(idCause, descriptionCause, idEmotion) VALUES ('ca-007','Clase impartida es ambigua, confusa y desorganizada.', 'em-003');
 INSERT INTO emotionsdb.Cause(idCause, descriptionCause, idEmotion) VALUES ('ca-008','Falta de preparación del material didáctico empleado en la clase.', 'em-003');
 INSERT INTO emotionsdb.Cause(idCause, descriptionCause, idEmotion) VALUES ('ca-009','Se realiza interrogatorios o pruebas de improviso.', 'em-003');         
 

@@ -6,6 +6,7 @@ import classes.Recommendation;
 import data.CauseDB;
 import data.EmotionDB;
 import data.RecommendationDB;
+import gui.SearchGUI;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
@@ -27,7 +28,7 @@ public class SearchAgent extends Agent {
 
     /**
      * Buscar y asociar los datos receptados por el agente detector
-     * (DetectingAgent) Enviar resultador al agente evaluador (EvaluatingAgent)
+     * (DetectingAgent) Enviar resultados al agente evaluador (EvaluatingAgent)
      */
     class SearchAgentBehaivour extends CyclicBehaviour {
 
@@ -37,10 +38,15 @@ public class SearchAgent extends Agent {
             // Recibir el mensaje del agente detector (DetectingAgent)
             ACLMessage detecting_message = blockingReceive();
             if (detecting_message != null) {
-                System.out.println(String.format("Mensaje receptado desde "
-                        + "agente detector: %s\n", detecting_message.getContent()));
+
                 try {
+
                     Emotion emotion = searchEmotion(detecting_message.getContent());
+                    
+                    System.out.println(String.format("Mensaje receptado desde "
+                            + "agente detector: %s\n", detecting_message.getContent()));
+                    
+                    updateInterface(emotion.getNameEmotion());
                     if (emotion != null) {
                         // Identificador del agente con el que se va a comunicar (EvaluatingAgent)
                         AID evaluating__agent_id = new AID();
@@ -57,7 +63,7 @@ public class SearchAgent extends Agent {
 
                         send(search_message); // Enviar mensaje al agente 'Buscador' (EvaluatingAgent)'
                     }
-                } catch (ClassNotFoundException | SQLException | IOException ex) {
+                } catch (ClassNotFoundException | SQLException | IOException | InterruptedException ex) {
                     Logger.getLogger(SearchAgent.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -121,5 +127,15 @@ public class SearchAgent extends Agent {
         }
 
         return recommendations;
+    }
+
+    protected void updateInterface(String emotionDetected) throws InterruptedException {
+        SearchGUI searchInterface = new SearchGUI();
+        searchInterface.setVisible(true);
+        searchInterface.lblEmotionSearch.setText("Buscando relaciones "
+                + "asociados con " + emotionDetected.toUpperCase());
+        Thread.sleep(5000);
+        searchInterface.setVisible(false);
+        searchInterface.lblEmotionSearch.setText("");
     }
 }

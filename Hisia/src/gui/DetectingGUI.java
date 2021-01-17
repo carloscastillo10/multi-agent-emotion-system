@@ -1,5 +1,9 @@
 package gui;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 
 /**
  * @team HISIA
@@ -13,7 +17,18 @@ public class DetectingGUI extends javax.swing.JFrame {
      */
     public DetectingGUI() {
         initComponents();
+        adjustImage();
         setLocationRelativeTo(null);
+        
+    }
+    
+    private void adjustImage(){
+        ImageIcon originalImage = new ImageIcon(getClass().getResource("/images/faceDetecting.gif"));
+        Image newImage = originalImage.getImage().getScaledInstance(
+                this.lblDetectingImage.getWidth(), this.lblDetectingImage.getHeight(), 
+                Image.SCALE_DEFAULT);
+        Icon newIcon = new ImageIcon(newImage);
+        this.lblDetectingImage.setIcon(newIcon);
     }
 
     /**
@@ -25,20 +40,47 @@ public class DetectingGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblDetecting = new javax.swing.JLabel();
-        lblSearching = new javax.swing.JLabel();
-        lblEvaluating = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        lblDectecting = new javax.swing.JLabel();
+        lblDetectingImage = new javax.swing.JLabel();
+        txtEmotionDetected = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(lblDetecting, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 40));
-        getContentPane().add(lblSearching, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 180, 40));
-        getContentPane().add(lblEvaluating, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 160, 40));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDectecting.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblDectecting.setText("Opdage (Agente Detector)");
+        jPanel3.add(lblDectecting, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 240, 40));
+        jPanel3.add(lblDetectingImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 350, 330));
+
+        txtEmotionDetected.setEditable(false);
+        txtEmotionDetected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmotionDetectedActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtEmotionDetected, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 140, 40));
+
+        jLabel1.setText("Emoción detectada");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Se podria agregar un emoticon");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 250, 40));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtEmotionDetectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmotionDetectedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmotionDetectedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,9 +125,11 @@ public class DetectingGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    public javax.swing.JLabel lblDetecting;
-    public javax.swing.JLabel lblEvaluating;
-    public javax.swing.JLabel lblSearching;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblDectecting;
+    private javax.swing.JLabel lblDetectingImage;
+    public javax.swing.JTextField txtEmotionDetected;
     // End of variables declaration//GEN-END:variables
 }
