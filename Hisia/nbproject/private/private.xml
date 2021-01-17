@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/carloscastillo/Escritorio/7mo%20Ciclo/INTELIGENCIA%20ARTIFICIAL/Segundo%20bimestre/Proyecto/SMA-Emociones/Hisia/src/data/EmotionDB.java</file>
-            <file>file:/home/carloscastillo/Escritorio/7mo%20Ciclo/INTELIGENCIA%20ARTIFICIAL/Segundo%20bimestre/Proyecto/SMA-Emociones/Hisia/src/data/RecommendationDB.java</file>
             <file>file:/home/carloscastillo/Escritorio/7mo%20Ciclo/INTELIGENCIA%20ARTIFICIAL/Segundo%20bimestre/Proyecto/SMA-Emociones/Hisia/src/agents/DetectingAgent.java</file>
-            <file>file:/home/carloscastillo/Escritorio/7mo%20Ciclo/INTELIGENCIA%20ARTIFICIAL/Segundo%20bimestre/Proyecto/SMA-Emociones/Hisia/src/classes/Recommendation.java</file>
             <file>file:/home/carloscastillo/Escritorio/7mo%20Ciclo/INTELIGENCIA%20ARTIFICIAL/Segundo%20bimestre/Proyecto/SMA-Emociones/Hisia/src/agents/EvaluatingAgent.java</file>
             <file>file:/home/carloscastillo/Escritorio/7mo%20Ciclo/INTELIGENCIA%20ARTIFICIAL/Segundo%20bimestre/Proyecto/SMA-Emociones/Hisia/src/agents/SearchAgent.java</file>
-            <file>file:/home/carloscastillo/Escritorio/7mo%20Ciclo/INTELIGENCIA%20ARTIFICIAL/Segundo%20bimestre/Proyecto/SMA-Emociones/Hisia/src/classes/Emotion.java</file>
+            <file>file:/home/carloscastillo/Escritorio/7mo%20Ciclo/INTELIGENCIA%20ARTIFICIAL/Segundo%20bimestre/Proyecto/SMA-Emociones/Hisia/src/gui/EvaluatingGUI.java</file>
         </group>
     </open-files>
 </project-private>

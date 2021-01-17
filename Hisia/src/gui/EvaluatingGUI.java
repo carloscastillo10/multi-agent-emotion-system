@@ -60,7 +60,7 @@ public class EvaluatingGUI extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblEvaluating.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblEvaluating.setText(" Avalie (Agente Buscador)");
+        lblEvaluating.setText(" Avalie (Agente Evaluador)");
         jPanel3.add(lblEvaluating, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 240, 40));
         jPanel3.add(lblEvaluatingmage, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 230, 300));
 
