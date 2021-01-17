@@ -16,12 +16,13 @@
 ---------------------------------
 
 ### Funcionamiento
- * Ejecutar el [script](https://github.com/CarlosCastillo10/SMA-Emociones/blob/main/script-sma-emotions.sql) como usuario ```root```.
+ * Ejecutar el [script.sql](https://github.com/CarlosCastillo10/SMA-Emociones/blob/main/script-sma-emotions.sql) como usuario ```root```.
  * Abrir el proyecto en Netbeans.
  * Clic derecho sobre el proyecto y darle clic en ```run```, como se muestra en la imágen.
  
  ![](https://github.com/CarlosCastillo10/SMA-Emociones/blob/main/execute.png)
  
+---------------------------------
 
 ### Agentes
 * Opdage (Agente detector)
